@@ -1,0 +1,23 @@
+# Video Downloader Android App
+# Requirements for Android build
+
+# Kivy framework
+kivy>=2.3.0
+
+# Android dependencies
+# These are handled by buildozer/p4a automatically
+
+# Core video downloader
+yt-dlp>=2024.1.0
+
+# For better UI
+pillow>=10.0.0
+
+# For notifications
+plyer>=2.1.0
+
+# For file handling
+androidstorage4kivy>=0.6.8
+
+# For permissions
+androidpermissions>=0.6.0
