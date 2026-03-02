@@ -2,7 +2,7 @@
 
 title = Video Downloader
 package.name = videodownloader
-package.domain = org.videodl
+package.domain = com.exapps
 version = 1.0.0
 
 orientation = portrait
@@ -18,6 +18,7 @@ android.accept_sdk_license = True
 
 icon.filename = icon.png
 
+source.dir = .
 source.include_exts = py,png,jpg,jpeg,ttf,json
 source.exclude_patterns = __pycache__,*.pyc,*.pyo,.git
 
