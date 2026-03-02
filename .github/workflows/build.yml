@@ -42,7 +42,7 @@ jobs:
           path: |
             ~/.android
             $ANDROID_HOME
-          key: android-sdk-${{ runner.os }}-${{ hashFiles('videodl_android/buildozer.spec') }}
+          key: android-sdk-cache
       
       - name: Install Python dependencies
         run: |
@@ -57,11 +57,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .buildozer
-          key: buildozer-${{ runner.os }}-${{ hashFiles('videodl_android/**') }}
+          key: buildozer-cache
       
       - name: Build debug APK
         run: |
-          cd videodl_android
+          ls -la
           buildozer android debug
         env:
           BUILDZOO_NO_CACHING: 1
@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: videodl-apk
-          path: videodl_android/bin/*.apk
+          path: bin/*.apk
           retention-days: 30
 
   release:
@@ -83,6 +83,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: videodl-apk
+          path: .
       
       - name: Create Release
         uses: softprops/action-gh-release@v1
